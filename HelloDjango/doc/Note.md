@@ -40,4 +40,32 @@
       + 根路由规则（path('two', include('Two.urls')),） + 子路由规则（urlpatterns = [
     url('index', views.index),
 ]）
-      
+
+## models ORM技术
++ Object Relation Mapping 对象关系映射  面对数据库操作
+- 将业务逻辑  解耦合
+  + Object.save()
+  + Object.delete()
+     
++ 关系型数据库
+  + DDL
+    + 通过模型定义，实现数据库表的定义
++ 数据操作
+  * 增删改查
+    * 存储  save()
+    * 查询  
+      * 所有数据  .object.all()
+      * 查询单个数据  .object.get(pk=***(键值))
+    * 更新
+      * 基于查询
+      + 查好对象，然后删除。最后save
+    + 删除
+      + 基于查询
+      + 调用 delete 方法
+   
+    
+        
+#### commmand + p 可查询函数（方法）参数，参数提示
+
+
+
