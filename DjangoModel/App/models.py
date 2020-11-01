@@ -4,7 +4,7 @@ from django.db import models
 from django.db import models
 
 
-class Person(models.Model):
+class Person(models.Model):  # query set（查询集） 创建可迭代的对象 object
     p_name = models.CharField(max_length=16, unique=True)
     p_age = models.IntegerField(default=18, db_column='age')
 

@@ -19,9 +19,17 @@ def add_persons(request):
 
 
 def get_persons(request):
-    persons = Person.objects.filter(p_age__gte=50).filter(p_age__lt=80).exclude(p_age=71)
-
+    # persons = Person.objects.filter(p_age__gte=50).filter(p_age__lt=80).exclude(p_age=71)
+    #
     # print(type(persons)) # persons 可迭代
+    persons = Person.objects.all().order_by("-p_age")
+
+    persons_values = persons.values()
+    print(type(persons_values))
+    print(persons_values)
+    for person in persons_values: # 类似 json
+        print(person)
+
     context = {
         "persons": persons,
     }
@@ -37,3 +45,14 @@ def add_person(request):
     person.save()
 
     return HttpResponse("Harry,Rhone できた！")
+
+
+def get_person(request):
+    # person = Person.objects.get(p_age=20) 查询条件不存在 的 异常
+    # person = Person.objects.get(p_age=77)
+    person = Person.objects.all().first()
+    print(person.p_name)
+
+    person_one = Person.objects.all().last()
+    print(person_one.p_name)
+    return HttpResponse("got it!")
