@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StudentList</title>
+</head>
+<body>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.s_name }}</li>
+        {% endfor %}
+
+    </ul>
+    <hr>
+    <ur>
+        {% for student in students %}
+{# 无法渲染的注释 get_name（） ！！！#}
+            <!--可以渲染的注释--!>
+            <li>{{ student.get_name }}</li>
+        {% endfor %}
+    </ur>
+    <hr>
+    <h3>{{ students.2.s_name }}</h3>
+    <hr>
+<h3>
+    {% for student in students %}
+        <li>{{ students.get_name }}</li>
+        {% empty %}
+        <H1>harry isn't exits</H1>
+    {% endfor %}
+
+</h3>
+</body>
+</html>
