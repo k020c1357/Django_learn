@@ -132,6 +132,35 @@
 + 可以对 条件 进行封装
 + 封装之后，可以支持 逻辑运算
   + 与（&） 或（|） 非（～） 等
+  
+## 模型成员
++ 类属性
+  + 显性
+  + 隐性：objects 是一个Manager类型的对象，作用于数据库交互
++ 当模型类 没有指定管理器时，django 自动创建
+  + 自定义：
+    + class Student(models.Model):
+        + stuManager = models.Manager()
+  + 自定义时，objects 就不存在，Django 不会自动生成管理器
+
+#### 自定义管理器
++ 模型管理器 是Django的模型于与 数据库 的交互接口
+  + 一个模型可以有多个管理器
+    + 作用：
+      1. 可以向 管理器 添加 额外方法
+      2. 修改管理器返回的 原始查询集
+      3. 提供创建对象的方式
+      ```
+      class StudentManage(models.Manager):
+          def get_query(self):
+              return super(StudentManager, self).get_queryset.filter(isDelete=Fasle)
+          def createStudent(self):
+              stu = self.model()
+              # 设置属性
+              return stu
+      ```
+      
+  
 
   
   

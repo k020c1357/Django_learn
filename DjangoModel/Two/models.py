@@ -31,3 +31,18 @@ class Company(models.Model):
     c_girl_num = models.IntegerField(default=5)
     c_boy_num = models.IntegerField(default=3)
 
+
+class AnimalManager(models.Manager):
+    # 自定义管理器
+    def get_queryset(self):
+        return super(AnimalManager, self).get_queryset().filter(is_delete=False)
+    # 可进一步添加 方法
+
+
+class Animal(models.Model):
+    a_name = models.CharField(max_length=16)
+    is_delete = models.BooleanField(default=False)
+
+    # 使用自定义管理器
+    # objects = AnimalManager()  好处： 增量添加代码 不更改原有代码
+    a_m = AnimalManager()  # 显性 属性 ---之后系统不进行自动生成管理器

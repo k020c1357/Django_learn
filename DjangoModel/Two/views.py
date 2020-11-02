@@ -2,7 +2,7 @@ from django.db.models import Max, F
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from Two.models import User, Order, Grade, Customer, Company
+from Two.models import User, Order, Grade, Customer, Company, Animal
 
 
 def get_user(request):
@@ -41,7 +41,6 @@ def get_orders(request):
 
 
 def get_grade(request):
-
     # 根据 级联数据 查询
     grades = Grade.objects.filter(student__s_name='aa')
     for grade in grades:
@@ -51,7 +50,7 @@ def get_grade(request):
 
 
 def get_customer(request):
-    result = Customer.objects.aggregate(Max('c_cost')) # 一个字典类型
+    result = Customer.objects.aggregate(Max('c_cost'))  # 一个字典类型
     print(result)
 
     return HttpResponse("cost succeed")
@@ -62,3 +61,15 @@ def get_company(request):
     for company in companies:
         print(company.c_name)
     return HttpResponse("company got succeed")
+
+
+def get_animals(request):
+    # animals = Animal.objects.all()
+    # 使用自定义的 管理器 a_m
+    # 方法已经重写
+    animals = Animal.a_m.all()  # 此处 可将 a_m改为原来的objects（保持了源代码不变），在models里 将object名重赋值。。。。
+
+    for animal in animals:
+        print(animal.a_name)
+
+    return HttpResponse("animal succeed")

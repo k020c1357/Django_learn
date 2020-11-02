@@ -9,4 +9,5 @@ urlpatterns = [
     url('getgrade', views.get_grade),
     url('getcustomer', views.get_customer),
     url('getcompany', views.get_company),
+    url('getanimals', views.get_animals),
 ]
