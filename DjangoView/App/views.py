@@ -1,7 +1,8 @@
 import random
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
+from django.urls import reverse
 
 
 def hello(request):
@@ -16,6 +17,15 @@ def hello(request):
 
 
 def get_name(request):
-    if random.randrange(10) > 5:
-        return HttpResponseRedirect('/app/hello/')
-    return HttpResponse("all right!")
+    #if random.randrange(10) > 5:   重定向
+     #   return HttpResponseRedirect('/app/hello/')
+    url = reverse('App:hello')
+    return HttpResponseRedirect(url)
+
+
+def get_info(request):
+    data = {
+        "status": 200,
+        "msg": 'ok',
+    }
+    return JsonResponse(data=data)

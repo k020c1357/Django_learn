@@ -27,4 +27,30 @@
     JsonResponse(dict)
   + 也可以用 `__init__(self, data)`设置数据
   + content-type : application/json
-  
+
+#### Json
+* JsonObject
+  * {}
+  * key-value
+* JsonArray
+  * `[ ]`
+  + 列表中可以是普通数据类型，也可以是 JsonObject
++ `` JsonObject JsonArray`` 可以互相嵌套
++ 移动端常用
++ 给Ajax
+
++ chrome plugins
+   + jsonformatter
+ 
++ 会话
+  + cookies
+    + 客户端会话技术
+      + 数据存储在客户端
+    + 键值对 形式
+    + 支持过期时间
+    + 默认cookies 自动携带，本网站所有cookies
+    + Cookies 跨域名，跨网站
+    + 通过 HttpResponse 控制
+    
+  + Session
+  + Token 

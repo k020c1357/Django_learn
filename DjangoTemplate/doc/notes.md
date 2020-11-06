@@ -77,4 +77,11 @@
     
 + url 反向解析
   + 动态获取路径
+  
+  
+  
+# 双R （request ，response）
+### HttpResponse
++ 视图中的第一个参数就是 HttpResponse 对象
+
     
