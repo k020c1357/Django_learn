@@ -5,6 +5,7 @@ __pycache__/
 
 #macos
 .DS_Store
+.idea
 
 # C extensions
 *.so
