@@ -50,7 +50,21 @@
     + 支持过期时间
     + 默认cookies 自动携带，本网站所有cookies
     + Cookies 跨域名，跨网站
-    + 通过 HttpResponse 控制
-    
+    + 通过 HttpResponse 控制（服务器控制客户端）
+    + 加盐：加密
+        
   + Session
+    + 服务端会话技术
+    + 数据存储在服务器中
+    + 默认 Session存储在内存中
+    + django 默认 把session持久化到数据库中
+    + session 默认过期时间是 14天
+    + 主键是 string
+    + 数据有安全保护
+    + session 依赖于 cookie
+     
   + Token 
+    + 服务端会话技术
+    + 自定义的session
+    + 不依赖 cookie
+    

@@ -1,0 +1,19 @@
+!
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StudentLogin</title>
+</head>
+<body>
+    <form action="two/student_login" method="post">{% csrf_token %}
+        <span>username:</span><input type="text" name="username" placeholder="please input username">
+        <br>
+        <span>password</span><input type="text" name="password" placeholder="please input your password">
+        <br>
+        <button>login</button>
+    </form>
+</body>
+</html>
